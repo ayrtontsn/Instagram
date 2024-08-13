@@ -31,7 +31,7 @@ function Post() {
             <div class="post">
                 <Topo imgperfil={item.imgperfil} nomeperfil={item.nomeperfil} />
                 <div class="conteudo">
-                    <img src={item.imagem}/>
+                    <img src={item.imagem} alt={item.nomeperfil}/>
                 </div>
                 <Fundo />
             </div >
