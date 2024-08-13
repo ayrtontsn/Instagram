@@ -1,3 +1,4 @@
+import React from 'react'
 import Suggestion from "./Suggestion"
 
 export default function App() {
@@ -11,13 +12,25 @@ export default function App() {
 }
 
 function Usuario() {
+    const [imagem, setImagem] = React.useState("")
+    const [nome, setNome] = React.useState("")
+
+    function alterarnome() {
+        const novonome = prompt("Digite seu novo nome!")
+        setNome(novonome)
+    }
+    function alterarimagem() {
+        const novaimagem = prompt("Digite o link de seu avatar!")
+        setImagem(novaimagem)
+    }
+
     return (
         <div class="usuario">
-            <img src="assets/img/catanacomics.svg" alt="imagem de perfil" />
+            <img src={!imagem?"assets/img/catanacomics.svg":imagem} alt="imagem de perfil" onClick={alterarimagem} />
             <div class="texto">
-                <span>
-                    <strong>catanacomics</strong>
-                    <ion-icon name="pencil"></ion-icon>
+                <span onClick={alterarnome}>
+                    <strong>{!nome?"catanacomics":nome}</strong>
+                    <ion-icon name="pencil" ></ion-icon>
                 </span>
             </div>
         </div>
