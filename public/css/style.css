@@ -305,3 +305,10 @@ ion-icon {
   color: black;
 }
 
+:root{
+  --ion-color-heart: red;
+}
+
+.ion-color-heart {
+  --ion-color-base: var(--ion-color-heart);
+}

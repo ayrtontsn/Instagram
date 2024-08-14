@@ -32,10 +32,8 @@ function Post() {
         itens.map((item) =>
             <div className="post" key={item.imagem}>
                 <Topo imgperfil={item.imgperfil} nomeperfil={item.nomeperfil} />
-                <div className="conteudo">
-                    <img src={item.imagem} alt={item.nomeperfil} />
-                </div>
-                <Fundo />
+
+                <Fundo imagem={item.imagem} nomeperfil={item.nomeperfil} />
             </div >
         )
     )
@@ -55,34 +53,41 @@ function Topo(props) {
     )
 }
 
-function Fundo() {
+function Fundo(props) {
+
+    const [curtir, setCurtir] = React.useState("heart-outline")
 
     return (
-        <div className="fundo">
-            <div className="acoes">
-                <div>
-                    <ion-icon name="heart-outline"></ion-icon>
-                    <ion-icon name="chatbubble-outline"></ion-icon>
-                    <ion-icon name="paper-plane-outline"></ion-icon>
-                </div>
-                <Salvar />
+        <>
+            <div className="conteudo">
+                <img src={props.imagem} alt={props.nomeperfil} onClick={() => setCurtir("heart")} />
             </div>
+            <div className="fundo">
+                <div className="acoes">
+                    <div>
+                        <ion-icon color={curtir} name={curtir} onClick={() => (curtir === "heart") ? setCurtir("heart-outline") : setCurtir("heart")}></ion-icon>
+                        <ion-icon name="chatbubble-outline"></ion-icon>
+                        <ion-icon name="paper-plane-outline"></ion-icon>
+                    </div>
+                    <Salvar />
+                </div>
 
-            <div className="curtidas">
-                <img src="assets/img/respondeai.svg" alt="respondeai" />
-                <div className="texto">
-                    Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
+                <div className="curtidas">
+                    <img src="assets/img/respondeai.svg" alt="respondeai" />
+                    <div className="texto">
+                        Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
 function Salvar() {
     const [salvo, setSalvo] = React.useState("bookmark-outline")
-    
+
     return (
-        <div onClick={() => (salvo==="bookmark")?setSalvo("bookmark-outline"):setSalvo("bookmark")}>
+        <div onClick={() => (salvo === "bookmark") ? setSalvo("bookmark-outline") : setSalvo("bookmark")}>
             <ion-icon name={salvo}></ion-icon>
         </div>
     )
