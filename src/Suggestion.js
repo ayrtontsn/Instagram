@@ -1,7 +1,7 @@
 export default function App() {
     return (
-        <div class="sugestoes">
-            <div class="titulo">
+        <div className="sugestoes">
+            <div className="titulo">
                 Sugestões para você
                 <div>Ver tudo</div>
             </div>
@@ -42,15 +42,15 @@ function Sugestão() {
 
     return (
         itens.map((item) =>
-            <div class="sugestao">
-                <div class="usuario">
+            <div className="sugestao" key={item.nome}>
+                <div className="usuario">
                     <img src={item.imagem} alt={item.nome} />
-                    <div class="texto">
-                        <div class="nome">{item.nome}</div>
-                        <div class="razao">{item.razao}</div>
+                    <div className="texto">
+                        <div className="nome">{item.nome}</div>
+                        <div className="razao">{item.razao}</div>
                     </div>
                 </div>
-                <div class="seguir">Seguir</div>
+                <div className="seguir">Seguir</div>
             </div >
         )
     )

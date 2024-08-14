@@ -1,9 +1,9 @@
 export default function Stories() {
     return (
-        <div class="stories">
+        <div className="stories">
             <Story />
 
-            <div class="setinha">
+            <div className="setinha">
                 <ion-icon name="chevron-forward-circle"></ion-icon>
             </div>
         </div>
@@ -48,11 +48,11 @@ function Story() {
 
     return (
         itens.map((item) =>
-            <div class="story">
-                <div class="imagem">
+            <div className="story" key={item.usuario}>
+                <div className="imagem">
                     <img src={item.imagem} alt={item.usuario} />
                 </div>
-                <div class="usuario">
+                <div className="usuario">
                     {item.usuario}
                 </div>
             </div>

@@ -1,6 +1,8 @@
+import React from 'react'
+
 export default function Posts() {
     return (
-        <div class="posts">
+        <div className="posts">
             <Post />
         </div>
     )
@@ -28,10 +30,10 @@ function Post() {
 
     return (
         itens.map((item) =>
-            <div class="post">
+            <div className="post" key={item.imagem}>
                 <Topo imgperfil={item.imgperfil} nomeperfil={item.nomeperfil} />
-                <div class="conteudo">
-                    <img src={item.imagem} alt={item.nomeperfil}/>
+                <div className="conteudo">
+                    <img src={item.imagem} alt={item.nomeperfil} />
                 </div>
                 <Fundo />
             </div >
@@ -41,12 +43,12 @@ function Post() {
 
 function Topo(props) {
     return (
-        <div class="topo">
-            <div class="usuario">
+        <div className="topo">
+            <div className="usuario">
                 <img src={props.imgperfil} alt={props.nomeperfil} />
                 {props.nomeperfil}
             </div>
-            <div class="acoes">
+            <div className="acoes">
                 <ion-icon name="ellipsis-horizontal"></ion-icon>
             </div>
         </div>
@@ -56,24 +58,32 @@ function Topo(props) {
 function Fundo() {
 
     return (
-        <div class="fundo">
-            <div class="acoes">
+        <div className="fundo">
+            <div className="acoes">
                 <div>
                     <ion-icon name="heart-outline"></ion-icon>
                     <ion-icon name="chatbubble-outline"></ion-icon>
                     <ion-icon name="paper-plane-outline"></ion-icon>
                 </div>
-                <div>
-                    <ion-icon name="bookmark-outline"></ion-icon>
-                </div>
+                <Salvar />
             </div>
 
-            <div class="curtidas">
+            <div className="curtidas">
                 <img src="assets/img/respondeai.svg" alt="respondeai" />
-                <div class="texto">
+                <div className="texto">
                     Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
                 </div>
             </div>
+        </div>
+    )
+}
+
+function Salvar() {
+    const [salvo, setSalvo] = React.useState("bookmark-outline")
+    
+    return (
+        <div onClick={() => (salvo==="bookmark")?setSalvo("bookmark-outline"):setSalvo("bookmark")}>
+            <ion-icon name={salvo}></ion-icon>
         </div>
     )
 }

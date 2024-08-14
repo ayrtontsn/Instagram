@@ -3,7 +3,7 @@ import Suggestion from "./Suggestion"
 
 export default function App() {
     return (
-        <div class="sidebar">
+        <div className="sidebar">
             <Usuario />
             <Suggestion />
             <Suporte />
@@ -25,9 +25,9 @@ function Usuario() {
     }
 
     return (
-        <div class="usuario">
+        <div className="usuario">
             <img src={!imagem?"assets/img/catanacomics.svg":imagem} alt="imagem de perfil" onClick={alterarimagem} />
-            <div class="texto">
+            <div className="texto">
                 <span onClick={alterarnome}>
                     <strong>{!nome?"catanacomics":nome}</strong>
                     <ion-icon name="pencil" ></ion-icon>
@@ -40,12 +40,12 @@ function Usuario() {
 function Suporte() {
     return (
         <>
-            <div class="links">
+            <div className="links">
                 Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes •
                 Hashtags • Idioma
             </div>
 
-            <div class="copyright">
+            <div className="copyright">
                 © 2021 INSTAGRAM DO FACEBOOK
             </div>
         </>
