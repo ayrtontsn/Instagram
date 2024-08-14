@@ -15,16 +15,19 @@ function Post() {
             imgperfil: "assets/img/meowed.svg",
             nomeperfil: "meowed",
             imagem: "assets/img/gato-telefone.svg",
+            curtidas: 101503
         },
         {
             imgperfil: "assets/img/barked.svg",
             nomeperfil: "barked",
             imagem: "assets/img/dog.svg",
+            curtidas: 98351
         },
         {
             imgperfil: "assets/img/filomoderna.svg",
             nomeperfil: "filomoderna",
             imagem: "assets/img/mindmap.jpg",
+            curtidas: 49999
         },
     ]
 
@@ -33,7 +36,7 @@ function Post() {
             <div className="post" key={item.imagem}>
                 <Topo imgperfil={item.imgperfil} nomeperfil={item.nomeperfil} />
 
-                <Fundo imagem={item.imagem} nomeperfil={item.nomeperfil} />
+                <Fundo imagem={item.imagem} nomeperfil={item.nomeperfil} curtidas={item.curtidas} />
             </div >
         )
     )
@@ -56,6 +59,9 @@ function Topo(props) {
 function Fundo(props) {
 
     const [curtir, setCurtir] = React.useState("heart-outline")
+    
+    let qtdcurtidas = 0
+    curtir==="heart" ? qtdcurtidas = props.curtidas + 1 : qtdcurtidas = props.curtidas;
 
     return (
         <>
@@ -75,7 +81,7 @@ function Fundo(props) {
                 <div className="curtidas">
                     <img src="assets/img/respondeai.svg" alt="respondeai" />
                     <div className="texto">
-                        Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
+                        Curtido por <strong>respondeai</strong> e <strong>outras {qtdcurtidas.toLocaleString("pt-br")} pessoas</strong>
                     </div>
                 </div>
             </div>
